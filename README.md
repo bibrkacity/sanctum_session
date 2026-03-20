@@ -29,7 +29,7 @@ This service has methods to get and set session variables:
 
 namespace App\Http\Middleware;
 
-use Bibrkacity\SanctumSession\SanctumSesssion;
+use Bibrkacity\SanctumSession\SanctumSession;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -49,17 +49,17 @@ class SetLocale
 
         if ($locale && $locale != app()->getLocale() && in_array($locale, $supportedLocales)) {
             app()->setLocale($locale);
-        } elseif (SanctumSesssion::has($request, 'locale')) {
-            $cacheLocale = SanctumSesssion::get($request, 'locale');
+        } elseif (SanctumSession::has($request, 'locale')) {
+            $sessionLocale = SanctumSession::get($request, 'locale');
             app()->setLocale(
-                in_array($cacheLocale, $supportedLocales) ?
-                    $cacheLocale :
+                in_array($sessionLocale, $supportedLocales) ?
+                    $sessionLocale :
                     config('app.locale'));
         } else {
             app()->setLocale(config('app.locale'));
         }
 
-        SanctumCacheService::put($request, 'locale', app()->getLocale());
+        SanctumSession::put($request, 'locale', app()->getLocale());
 
         return $next($request);
     }
