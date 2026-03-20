@@ -1,6 +1,7 @@
 {
     "name": "bibrkacity/sanctum_session",
     "description": "Supporting work with variables related to Sanctum token",
+    "keywords": ["laravel", "sanctum", "variables"],
     "type": "library",
     "license": "MIT",
     "autoload": {
@@ -16,7 +17,8 @@
     ],
     "require": {
         "php": "^8.2",
-        "laravel/framework": "^13.0 || ^12.1"
+        "laravel/framework": "^13.0 || ^12.1",
+        "illuminate/support": "^11.0|^12.0|^13.0"
     },
     "extra": {
         "laravel": {
@@ -27,5 +29,6 @@
                 "SanctumSession": "Bibrkacity\\SanctumSession\\Services\\SanctumSession"
             }
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
