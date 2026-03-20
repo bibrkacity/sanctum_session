@@ -10,4 +10,9 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             __DIR__.'/../../database/migrations' => database_path('migrations'),
         ]);
     }
+
+    public function register(): void
+    {
+
+    }
 }
