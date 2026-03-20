@@ -14,11 +14,14 @@
             "email": "bibrkacity@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^13.0 || ^12.1"
+    },
     "extra": {
         "laravel": {
             "providers": [
-                "Bibrkacity\\SanctumSession\\app\\Providers\\ServiceProvider"
+                "Bibrkacity\\SanctumSession\\app\\Providers\\SanctumSessionServiceProvider"
             ],
             "aliases": {
                 "SanctumSession": "Bibrkacity\\SanctumSession\\app\\Services\\SanctumSession"

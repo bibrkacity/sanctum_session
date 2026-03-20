@@ -2,7 +2,7 @@
 
 namespace Bibrkacity\SanctumSession\app\Providers;
 
-class ServiceProvider extends \Illuminate\Support\ServiceProvider
+class SanctumSessionServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     public function boot(): void
     {
