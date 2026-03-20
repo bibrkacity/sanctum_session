@@ -1,0 +1,18 @@
+{
+    "name": "bibrkacity/sanctum_session",
+    "description": "Supporting work with variables related to Sanctum token",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Bibrkacity\\SanctumSession\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yuriy A. Maksymenko",
+            "email": "bibrkacity@gmail.com"
+        }
+    ],
+    "require": {}
+}
