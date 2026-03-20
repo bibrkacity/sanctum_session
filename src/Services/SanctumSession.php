@@ -1,8 +1,8 @@
 <?php
 
-namespace Bibrkacity\SanctumSession\app\Services;
+namespace Bibrkacity\SanctumSession\Services;
 
-use Bibrkacity\SanctumSession\app\Models\PersonalAccessTokenVar;
+use Bibrkacity\SanctumSession\Models\PersonalAccessTokenVar;
 
 /**
  * Service for working with session variables of the Sanctum

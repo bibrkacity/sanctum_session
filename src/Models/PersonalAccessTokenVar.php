@@ -1,6 +1,6 @@
 <?php
 
-namespace Bibrkacity\SanctumSession\app\Models;
+namespace Bibrkacity\SanctumSession\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
