@@ -16,6 +16,23 @@ class SanctumSession
     protected static array $available = ['int','integer','float','bool','boolean','string','array','json','object'];
 
     /**
+     * Checking if a variable exists in the Sanctum session
+     * @param string $token
+     * @param string $key
+     * @return bool
+     */
+    public static function has(string $token, string $key): bool
+    {
+        $var = PersonalAccessTokenVar::query()
+            ->where('personal_access_token_id', self::getTokenId($token))
+            ->where('key', $key)
+            ->first();
+
+        return $var instanceof PersonalAccessTokenVar;
+
+    }
+
+    /**
      * Getting a variable from the Sanctum session
      * @param string $token Sanctum token
      * @param string $key Variable key

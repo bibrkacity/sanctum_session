@@ -7,13 +7,14 @@ Supporting work with variables related to Sanctum token For Laravel.
 ## Usage
 The Service `Bibrkacity\SanctumSession\SanctumService` available in your project after installation. It has methods to get and set session variables:
 
-| Method      | Arguments | Description |
-|-------------|-----------|-------------|
-| get()       |           |             |
-| getAll()    |           |             |
-| put()       |           |             |
-| forget()    |           |             |
-| forgetAll() |           |             |
+| Method       | Arguments                                                | Description                                                          |
+|--------------|----------------------------------------------------------|----------------------------------------------------------------------|
+| has() | string \$token,<br /> string \$key                       | Checking if a variable with name=\$key exists in the Sanctum session |
+| get()        | string \$token,<br /> string \$key, <br />mixed $default |                                                                      |
+| getAll()     | string \$token                                           |                                                                      |
+| put()        | string \$token                                           |                                                                      |
+| forget()     | string \$token                                           |                                                                      |
+| forgetAll()  | string \$token                                           |                                                                      |
 
 ### Examples
 
