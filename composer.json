@@ -18,10 +18,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Bibrkacity\\SanctumSession\\ServiceProvider"
+                "Bibrkacity\\SanctumSession\\app\\Providers\\ServiceProvider"
             ],
             "aliases": {
-                "SanctumSession": "Bibrkacity\\SanctumSession\\Services\\SanctumSession"
+                "SanctumSession": "Bibrkacity\\SanctumSession\\app\\Services\\SanctumSession"
             }
         }
     }
