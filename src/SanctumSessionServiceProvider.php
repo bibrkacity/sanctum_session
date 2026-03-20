@@ -1,6 +1,6 @@
 <?php
 
-namespace Bibrkacity\SanctumSession\Providers;
+namespace Bibrkacity\SanctumSession;
 
 class SanctumSessionServiceProvider extends \Illuminate\Support\ServiceProvider
 {
