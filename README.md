@@ -22,6 +22,49 @@ This service has methods to get and set session variables:
 
 ### Examples
 
+1. Middleware for get/set locale using the Sanctum session:
+
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Bibrkacity\SanctumSession\SanctumSesssion;
+use Closure;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+class SetLocale
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     */
+    public function handle(Request $request, Closure $next): Response
+    {
+        $supportedLocales = config('app.supported_locales');
+        $locale = $request->input('locale');
+
+
+        if ($locale && $locale != app()->getLocale() && in_array($locale, $supportedLocales)) {
+            app()->setLocale($locale);
+        } elseif (SanctumSesssion::has($request, 'locale')) {
+            $cacheLocale = SanctumSesssion::get($request, 'locale');
+            app()->setLocale(
+                in_array($cacheLocale, $supportedLocales) ?
+                    $cacheLocale :
+                    config('app.locale'));
+        } else {
+            app()->setLocale(config('app.locale'));
+        }
+
+        SanctumCacheService::put($request, 'locale', app()->getLocale());
+
+        return $next($request);
+    }
+}```
+
 
 
 
