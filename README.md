@@ -1,5 +1,13 @@
 # Sanctum Session
 Supporting work with variables related to Sanctum token For Laravel. It can be useful, for example, for storing user preferences or user-specific data.
+
+<!-- TOC -->
+* [Sanctum Session](#sanctum-session)
+  * [Installation](#installation)
+  * [Usage](#usage)
+    * [Examples](#examples)
+  * [Prune old Sanctum session variables](#prune-old-sanctum-session-variables)
+<!-- TOC -->
 ## Installation
 1. Run <br />`composer require bibrkacity/sanctum_session`<br />from the root of your project.
 2. Run <br />`php artisan vendor:publish --provider="Bibrkacity\SanctumSession\SanctumSessionServiceProvider"`<br /> from the root of your project.
