@@ -9,6 +9,8 @@ The Service `Bibrkacity\SanctumSession\SanctumService` available in your project
 
 ```php 
 $token = request()->bearerToken();
+// or 
+$token = $request->bearerToken();
 ```
 
 Available types of variables:
@@ -40,7 +42,7 @@ The Service `Bibrkacity\SanctumSession\SanctumService` has a static methods for 
 
 namespace App\Http\Middleware;
 
-use Bibrkacity\SanctumSession\SanctumSession;
+use Bibrkacity\SanctumSession\Services\SanctumSession;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -55,22 +57,28 @@ class SetLocale
     public function handle(Request $request, Closure $next): Response
     {
         $supportedLocales = config('app.supported_locales');
+        $defaultLocale = config('app.locale');
         $locale = $request->input('locale');
 
-
-        if ($locale && $locale != app()->getLocale() && in_array($locale, $supportedLocales)) {
+        if ($locale && in_array($locale, $supportedLocales)) {
             app()->setLocale($locale);
         } elseif (SanctumSession::has($request->bearerToken(), 'locale')) {
             $sessionLocale = SanctumSession::get($request->bearerToken(), 'locale');
             app()->setLocale(
                 in_array($sessionLocale, $supportedLocales) ?
                     $sessionLocale :
-                    config('app.locale'));
+                    $defaultLocale
+            );
         } else {
-            app()->setLocale(config('app.locale'));
+            app()->setLocale($defaultLocale);
+        }
+        $locale = app()->getLocale();
+        if ($locale === $defaultLocale) {
+            SanctumSession::forget($request->bearerToken(), 'locale');
+        } else {
+            SanctumSession::put($request->bearerToken(), 'locale', 'string', $locale);
         }
 
-        SanctumSession::put($request->bearerToken(), 'locale', 'string', app()->getLocale());
 
         return $next($request);
     }
