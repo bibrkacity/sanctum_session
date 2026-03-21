@@ -34,14 +34,15 @@
     "scripts": {
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize",
-            "php artisan vendor:publish --provider=\"Bibrkacity\\SanctumSession\\SanctumSessionServiceProvider\"",
-            "php artisan migrate"
+            "@php artisan vendor:publish --provider=\"Bibrkacity\\SanctumSession\\SanctumSessionServiceProvider\"",
+            "@php artisan migrate"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan vendor:publish --provider=\"Bibrkacity\\SanctumSession\\SanctumSessionServiceProvider\""
+            "@php artisan vendor:publish --provider=\"Bibrkacity\\SanctumSession\\SanctumSessionServiceProvider\""
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump"
         ]
-
     }
 }
