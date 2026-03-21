@@ -13,7 +13,7 @@ Supporting work with variables related to Sanctum token For Laravel. It can be u
 2. Run <br />`php artisan vendor:publish --provider="Bibrkacity\SanctumSession\SanctumSessionServiceProvider"`<br /> from the root of your project.
 3. Run <br />`php artisan migrate`<br /> from the root of your project.
 ## Usage
-The Service `Bibrkacity\SanctumSession\SanctumService` available in your project after installation. The token for use as argument in the methods you can get from the request:
+The alias `SanctumService` available in your project after installation. The token for use as argument in the methods you can get from the request:
 
 ```php 
 $token = request()->bearerToken();
@@ -30,7 +30,7 @@ Available types of variables:
 - object
 - json
 
-The Service `Bibrkacity\SanctumSession\SanctumService` has a static methods for work with the Sanctum session variables:
+The alias `SanctumService` has a static methods for work with the Sanctum session variables:
 
 | Method      | Arguments                                                                   | Description                                                            |
 |-------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------|
@@ -50,7 +50,7 @@ The Service `Bibrkacity\SanctumSession\SanctumService` has a static methods for 
 
 namespace App\Http\Middleware;
 
-use Bibrkacity\SanctumSession\Services\SanctumSession;
+use SanctumSession;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
