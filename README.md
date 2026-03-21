@@ -1,8 +1,7 @@
 # Sanctum Session
-Supporting work with variables related to Sanctum token For Laravel. It can be useful, for example, for storing user preferences or user-specific data.
+Supporting work with variables related to Sanctum token For Laravel. It can be called "Sanctum Session". It can be useful, for example, for storing user preferences or user-specific data.
 
 <!-- TOC -->
-* [Sanctum Session](#sanctum-session)
   * [Installation](#installation)
   * [Usage](#usage)
     * [Examples](#examples)
