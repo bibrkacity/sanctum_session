@@ -60,8 +60,8 @@ class SetLocale
 
         if ($locale && $locale != app()->getLocale() && in_array($locale, $supportedLocales)) {
             app()->setLocale($locale);
-        } elseif (SanctumSession::has($request, 'locale')) {
-            $sessionLocale = SanctumSession::get($request, 'locale');
+        } elseif (SanctumSession::has($request->bearerToken(), 'locale')) {
+            $sessionLocale = SanctumSession::get($request->bearerToken(), 'locale');
             app()->setLocale(
                 in_array($sessionLocale, $supportedLocales) ?
                     $sessionLocale :
@@ -70,7 +70,7 @@ class SetLocale
             app()->setLocale(config('app.locale'));
         }
 
-        SanctumSession::put($request, 'locale', app()->getLocale());
+        SanctumSession::put($request->bearerToken(), 'locale', 'string', app()->getLocale());
 
         return $next($request);
     }
