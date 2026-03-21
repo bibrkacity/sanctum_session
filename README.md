@@ -9,7 +9,7 @@ The Service `Bibrkacity\SanctumSession\SanctumService` available in your project
 
 `$token = request()->bearerToken();`
 
-This service has methods to get and set session variables:
+This service has a static methods to get and set session variables:
 
 | Method      | Arguments                                                                   | Description                                                            |
 |-------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------|

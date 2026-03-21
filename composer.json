@@ -30,5 +30,18 @@
             }
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "scripts": {
+        "post-install-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "php artisan optimize",
+            "php artisan vendor:publish --provider=\"Bibrkacity\\SanctumSession\\SanctumSessionServiceProvider\"",
+            "php artisan migrate"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan vendor:publish --provider=\"Bibrkacity\\SanctumSession\\SanctumSessionServiceProvider\""
+        ]
+
+    }
 }
